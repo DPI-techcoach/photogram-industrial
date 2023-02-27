@@ -12,6 +12,13 @@ task sample_data: :environment do
     User.destroy_all
   end
 
+  User.create(
+      email: "anantha@example.com",
+      password: "password",
+      username: "anantha",
+      private: [true, false].sample,
+    )
+
   12.times do
     name = Faker::Name.first_name.downcase
     User.create(
